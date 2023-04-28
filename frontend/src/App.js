@@ -1,11 +1,12 @@
 import './App.css';
+import Contact from './Components/contact/contact';
 function App() {
   return (
     <div className="App">
-      
-          Learn React
+  
+        <Contact/>
         
-    </div>
+             </div>
   );
 }
 export default App;
