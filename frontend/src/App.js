@@ -1,9 +1,16 @@
 import './App.css';
+import Navbar from './Navbar/Navbar';
 function App() {
   return (
     <div className="App">
-      
-          Learn React
+      <Navbar/>
+      {/* <Routes>
+    
+          <Route path="/contactus" element={</>} />
+          <Route path="/home" element={<Home/>} />
+          <Route path="/about" element={< />} />
+   
+      </Routes> */}
         
     </div>
   );
