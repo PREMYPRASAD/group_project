@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .mid-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./pizza-1317699_960_720.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .show-more-button {
+    background-color: rgb(216, 15, 8);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+
+.heading h1 {
+    color: rgb(240, 11, 11);
+    font-size: 70px;
+    margin-bottom: 30px;
+}
+
+  .more-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .more-info p {
+    font-size: 35px;
+    color: rgb(219, 1, 1);
+    text-align: center;
+    margin-top: 30px;
+  }
+  
