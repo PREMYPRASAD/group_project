@@ -3,7 +3,8 @@ import "./contact.css"
 import PizzaLeft from "../../assets/pizzaLeft.jpg";
 
 
-export class contact extends Component {
+
+export default class contact extends Component {
   render() {
     return (
       <div className="contact">
@@ -36,4 +37,3 @@ export class contact extends Component {
   }
 }
 
-export default contact
