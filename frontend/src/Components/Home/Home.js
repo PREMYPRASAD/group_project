@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './Home.css';
+import './Home.css'
+
 
 export default class Home extends Component {
   state = {
@@ -15,6 +16,7 @@ export default class Home extends Component {
   render() {
     const { showMore } = this.state;
     return (
+
       <div className="mid-section">
         {!showMore && (
           <div className="heading">
