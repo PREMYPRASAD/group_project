@@ -1,9 +1,17 @@
 import './App.css';
+
+import Contact from './Components/contact/contact';
+import Home from './Components/Home/Home';
 import Navbar from './Navbar/Navbar';
+
+
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+    <Navbar/>
+  < Home/> 
+        <Contact/>
+        
       {/* <Routes>
     
           <Route path="/contactus" element={</>} />
@@ -12,7 +20,8 @@ function App() {
    
       </Routes> */}
         
-    </div>
+             </div>
+
   );
 }
 export default App;
