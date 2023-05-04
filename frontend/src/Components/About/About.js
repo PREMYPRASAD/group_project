@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 import './About.css'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Navbar from '../../Navbar/Navbar';
 
 export default class About extends Component {
   render() {
     return (
+      <div>
+        <Navbar/>
       <div className='bg'>
         <h1 style={{marginBottom:'30px', fontSize:'40px', color:'rgba(22, 22, 22, 0.77)'}}>ABOUT US</h1>
        <Card  className='card'>
@@ -37,6 +40,7 @@ export default class About extends Component {
         </ListGroup.Item>
       </ListGroup>
     </Card>
+    </div>
     </div>
     )
   }

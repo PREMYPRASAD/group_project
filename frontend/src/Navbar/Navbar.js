@@ -14,9 +14,10 @@ class Navbar extends Component {
             </div>
           </div>
           <div className="right">
-          <div className="menuitems"> <Link to="/"  style={{ textDecoration: 'none' }}>HOME</Link></div>
+          <div className="menuitems"> <Link to="/home"  style={{ textDecoration: 'none' }}>HOME</Link></div>
           <div className="menuitems"> <Link to="/about"  style={{ textDecoration: 'none' }}>ABOUT</Link></div>
           <div className="menuitems"> <Link to="/contactus"  style={{ textDecoration: 'none' }}>CONTACTUS</Link></div>
+          <div className="menuitems"> <Link to="/"  style={{ textDecoration: 'none' }}>LOGOUT</Link></div>
           
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Home.css'
+import Navbar from '../../Navbar/Navbar';
 
 
 export default class Home extends Component {
@@ -16,7 +17,8 @@ export default class Home extends Component {
   render() {
     const { showMore } = this.state;
     return (
-
+      <div>
+        <Navbar/>
       <div className="mid-section">
         {!showMore && (
           <div className="heading">
@@ -31,6 +33,7 @@ export default class Home extends Component {
             <p>Pizza Hut is an American multinational restaurant chain and international franchise founded in 1958 in Wichita, Kansas by Dan and Frank Carney. The chain, headquartered in Plano, Texas, operates 17,639 restaurants worldwide as of 2020. It is owned by Yum! Brands, Inc</p>
           </div>
         )}
+      </div>
       </div>
     );
   }

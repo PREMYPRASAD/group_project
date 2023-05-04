@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import "./contact.css"
 import PizzaLeft from "../../assets/pizzaLeft.jpg";
+import Navbar from "../../Navbar/Navbar";
 
 
 
 export default class contact extends Component {
   render() {
     return (
+      <div>
+        <Navbar/>
       <div className="contact">
-      <div
-                className="leftSide"
+      <div className="leftSide"
             style={{ backgroundImage: `url(${PizzaLeft})` }}>
         
         </div> 
@@ -32,7 +34,7 @@ export default class contact extends Component {
         </form>
       </div>
     </div>
-  
+    </div>
     )
   }
 }

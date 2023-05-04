@@ -14,7 +14,7 @@
   }
   
   .show-more-button {
-    background-color: rgb(216, 15, 8);
+    background-color: rgb(161, 25, 20);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -25,7 +25,7 @@
   
 
 .heading h1 {
-    color: rgb(240, 11, 11);
+    color: rgb(233, 20, 20);
     font-size: 70px;
     margin-bottom: 30px;
 }
