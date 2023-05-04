@@ -1,82 +1,84 @@
-import React, { Component } from "react";
-import { Navigate ,Link} from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios";
 import "./Register.css";
-import config from "../../services/config.json"
+import config from "../../services/config.json";
 
-class Register extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user_name: "",
-      pass_word: "",
-      registrationError: "",
-    };
-  }
+const Register = () => {
+  const [user_name, setUsername] = useState("");
+  const [pass_word, setPassword] = useState("");
+  const [registrationError, setRegistrationError] = useState("");
 
-  handleUsernameChange = (event) => {
-    this.setState({ user_name: event.target.value });
+  const navigate = useNavigate();
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
   };
 
-  handlePasswordChange = (event) => {
-    this.setState({ pass_word: event.target.value });
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
   };
 
-  handleSubmit = async (event) => {
+  
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`${config.api_base_url}/user/signup`, {
-        user_name: this.state.user_name,
-        pass_word: this.state.pass_word,
-      }, { withCredentials: true });
-      if (response.status === 201) {
-        Navigate("/login");
+      const response = await axios.post(
+        `${config.api_base_url}/user/signup`,
+        {
+          user_name,
+          pass_word,
+        }
+      );
+      if (response.data.success) {
+        alert('Successfully registered');
+        navigate("/");
       } else {
         const data = response.data;
-        this.setState({ registrationError: data.message });
+        setRegistrationError(data.message);
       }
     } catch (error) {
       console.error(error);
-      this.setState({
-        registrationError: "An error occurred while registering.",
-      });
+      setRegistrationError("An error occurred while registering.");
     }
   };
+  
+  return (
+    <div className="background-container">
+      <form onSubmit={handleSubmit} className="register-form">
+        <label>
+          Username:
+          <input
+            type="text"
+            value={user_name}
+            onChange={handleUsernameChange}
+          />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input
+            type="password"
+            value={pass_word}
+            onChange={handlePasswordChange}
+          />
+        </label>
+        <br />
+        {registrationError && (
+          <div className="error-message">{registrationError}</div>
+        )}
 
-  render() {
-    return (
-      <div className="background-container">
-        <form onSubmit={this.handleSubmit} className="register-form">
-          <label>
-            Username:
-            <input
-              type="text"
-              value={this.state.user_name}
-              onChange={this.handleUsernameChange}
-            />
-          </label>
-          <br />
-          <label>
-            Password:
-            <input
-              type="password"
-              value={this.state.pass_word}
-              onChange={this.handlePasswordChange}
-            />
-          </label>
-          <br />
-          {this.state.registrationError && (
-            <div className="error-message">{this.state.registrationError}</div>
-          )}
-
-          <div className="login-link">
-            Already have an account? <Link  to="/login"  style={{ textDecoration: 'none' ,color:'red'}}>Login</Link>
-          </div>
-          <button type="submit">Register</button>
-        </form>
-      </div>
-    );
-  }
-}
+        <div className="login-link">
+          Already have an account?{" "}
+          <Link to="/" style={{ textDecoration: "none", color: "red" }}>
+            Login
+          </Link>
+        </div>
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  );
+};
 
 export default Register;
+

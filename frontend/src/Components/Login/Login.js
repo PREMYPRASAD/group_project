@@ -1,52 +1,42 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import config from "../../services/config.json";
 import './Login.css'
-import { Navigate ,Link} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
-class LoginPage extends Component {
-  constructor(props) {
-    super(props);
+function LoginPage() {
+  const [user_name, setUsername] = useState('');
+  const [pass_word, setPassword] = useState('');
+  const navigate = useNavigate();
 
-    this.state = {
-      username: '',
-      password: ''
-    };
-
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     axios.get(`${config.api_base_url}/user/login`)
       .then(response => {
         if (response.data.loggedIn) {
-          Navigate('/home');
+          navigate('/home');
         }
       })
       .catch(error => {
         console.log(error);
       });
+  }, []);
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
   }
 
-  handleUsernameChange(event) {
-    this.setState({ username: event.target.value });
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
   }
 
-  handlePasswordChange(event) {
-    this.setState({ password: event.target.value });
-  }
-
-  handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    const { username, password } = this.state;
-
-    axios.post(`${config.api_base_url}/user/login`, { username, password })
+    axios.post(`${config.api_base_url}/user/login`, { user_name, pass_word })
       .then(response => {
+        console.log(response)
         if (response.data.success) {
-          Navigate('/home');
+          navigate('/home');
         } else {
           alert('Login failed. Please try again.');
         }
@@ -55,32 +45,30 @@ class LoginPage extends Component {
         console.log(error);
       });
   }
-  render() {
-    return (
-      <div className="Auth-form-container">
-      <form onSubmit={this.handleSubmit} className="Auth-form">
-      <div className="Auth-form-content">
-        <h1 className="Auth-form-title">LOGIN</h1>
-        <label>
-          Username:
-          <input type="text" value={this.state.username} onChange={this.handleUsernameChange} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" value={this.state.password} onChange={this.handlePasswordChange} />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-        <p className="forgot-password text-right mt-4" style={{marginTop:'10px'}}>
-            SignUp Here!! <a href="#">signup</a>
+
+  return (
+    <div className="Auth-form-container">
+      <form onSubmit={handleSubmit} className="Auth-form">
+        <div className="Auth-form-content">
+          <h1 className="Auth-form-title">LOGIN</h1>
+          <label>
+            Username:
+            <input type="text" value={user_name} onChange={handleUsernameChange} />
+          </label>
+          <br />
+          <label>
+            Password:
+            <input type="password" value={pass_word} onChange={handlePasswordChange} />
+          </label>
+          <br />
+          <button type="submit">Login</button>
+          <p className="forgot-password text-right mt-4" style={{marginTop:'10px'}}>
+            SignUp Here!! <Link to="/signup">signup</Link>
           </p>
         </div>
       </form>
-      </div>
-
-    );
-  }
+    </div>
+  );
 }
 
 export default LoginPage;
