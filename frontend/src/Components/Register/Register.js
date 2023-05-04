@@ -8,26 +8,26 @@ class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: "",
+      user_name: "",
+      pass_word: "",
       registrationError: "",
     };
   }
 
   handleUsernameChange = (event) => {
-    this.setState({ username: event.target.value });
+    this.setState({ user_name: event.target.value });
   };
 
   handlePasswordChange = (event) => {
-    this.setState({ password: event.target.value });
+    this.setState({ pass_word: event.target.value });
   };
 
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(`${config.api_base_url}/user/signup`, {
-        username: this.state.username,
-        password: this.state.password,
+        user_name: this.state.user_name,
+        pass_word: this.state.pass_word,
       }, { withCredentials: true });
       if (response.status === 201) {
         Navigate("/login");
@@ -51,7 +51,7 @@ class Register extends Component {
             Username:
             <input
               type="text"
-              value={this.state.username}
+              value={this.state.user_name}
               onChange={this.handleUsernameChange}
             />
           </label>
@@ -60,7 +60,7 @@ class Register extends Component {
             Password:
             <input
               type="password"
-              value={this.state.password}
+              value={this.state.pass_word}
               onChange={this.handlePasswordChange}
             />
           </label>
