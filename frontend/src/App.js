@@ -5,14 +5,15 @@ import Home from './Components/Home/Home';
 import Register from './Components/Register/Register';
 import Navbar from './Navbar/Navbar';
 import { Route,Routes } from "react-router-dom";
+import LoginPage from './Components/Login/Login';
 
 function App() {
   return (
     <div className="App">
-<Register/>
-    {/* <Navbar/>  */}
+
       <Routes>
-          <Route path="/home"  element={<Home/>} />
+          <Route path="/"  element={<LoginPage/>} />
+          <Route path="/home" element={< Home/>} />
           <Route path="/about" element={< About/>} />
           <Route path="/contactus" element={<Contact/>} />
    
