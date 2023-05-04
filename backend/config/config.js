@@ -4,7 +4,7 @@ const db = pgp({
   port: 5432,
   database: 'userDetails',
   user: 'postgres',
-  password: '123456789'
+  password: '1997'
 });
 // const db = pgp({
 //   host: 'localhost',
@@ -20,6 +20,7 @@ db.one('SELECT $1 AS value', 'psql running successfully')
   .catch((error) => {
     console.log('ERROR:', error)
   })
+
   module.exports = {
   pgp,
   db,

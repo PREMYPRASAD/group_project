@@ -2,11 +2,12 @@ const { db }= require("../config/config");
  
 
 const addUser = async (req, res) => {
-  const { userid, user_name, pass_word } = req.body;
+
+  const { user_name, pass_word } = req.body;
   try {
     const result = await db.query(
-      "INSERT INTO users(userid,user_name,pass_word) VALUES ($1, $2, $3) RETURNING *",
-      [userid,user_name,pass_word]
+      "INSERT INTO users(user_name, pass_word) VALUES ($1, $2) RETURNING *",
+      [user_name, pass_word]
     );
     res.send(result);
   } catch (err) {
@@ -15,8 +16,8 @@ const addUser = async (req, res) => {
   }
 };
 
-const getUserDetails = async (req, res) => {
-  
+
+const getUserDetails = async (req, res) =>{
   await db.query("SELECT * FROM users " )
     .then((data) => {
       res.json(data);
