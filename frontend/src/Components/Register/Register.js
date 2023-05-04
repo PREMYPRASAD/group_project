@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate ,Link} from "react-router-dom";
 import axios from "axios";
 import "./Register.css";
+import config from "../../services/config.json"
 
 class Register extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Register extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("/api/register", {
+      const response = await axios.post(`${config.api_base_url}/user/signup`, {
         username: this.state.username,
         password: this.state.password,
       }, { withCredentials: true });
@@ -69,7 +70,7 @@ class Register extends Component {
           )}
 
           <div className="login-link">
-            Already have an account? <a href="/login">Login</a>
+            Already have an account? <Link  to="/login"  style={{ textDecoration: 'none' ,color:'red'}}>Login</Link>
           </div>
           <button type="submit">Register</button>
         </form>
