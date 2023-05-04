@@ -1,0 +1,63 @@
+.background-container {
+    background-image: url('https://images.pexels.com/photos/1646753/pexels-photo-1646753.jpeg?cs=srgb&dl=pexels-mart%C3%AD-pardo-1646753.jpg&fm=jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .register-form {
+    background-color: rgba(255, 255, 255, 0.994);
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .login-link {
+    margin-top: 20px;
+    color: #005f8c;
+    text-align: center;
+  }
+  
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  label {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  input {
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    margin-top: 30px;
+    background-color: #007acc;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #005f8c;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
