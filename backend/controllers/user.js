@@ -4,6 +4,7 @@ const { db }= require("../config/config");
 const loginUser = async (req, res) => {
   const { user_name, pass_word } = req.body;
   console.log(user_name, pass_word);
+ 
   try {
     const result = await db.query(
       "SELECT * FROM users WHERE user_name = $1 AND pass_word = $2",
@@ -12,12 +13,14 @@ const loginUser = async (req, res) => {
     if (result && result.length > 0) {
       res.status(200).json({ success: true, message: "Login credentials matched" });
       console.log(result);
+      console.log(result);
     } else {
       res.status(401).json({ error: "Invalid username or password" });
     }
   } catch (err) {
     console.error(err);
     res.send("Error " + err);
+    console.log(result);
   }
 };
 
