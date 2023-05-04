@@ -2,6 +2,7 @@ const { db }= require("../config/config");
  
 
 const addUser = async (req, res) => {
+
   const { user_name, pass_word } = req.body;
   try {
     const result = await db.query(
@@ -15,6 +16,7 @@ const addUser = async (req, res) => {
   }
 };
 
+
 const getUserDetails = async (req, res) =>{
   await db.query("SELECT * FROM users " )
     .then((data) => {
@@ -26,8 +28,10 @@ const getUserDetails = async (req, res) =>{
     });
   }
 
+
          
 module.exports = {
-  addUser,
+   addUser,
   getUserDetails
-} 
+}
+

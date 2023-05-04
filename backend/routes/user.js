@@ -9,7 +9,7 @@ addUser,
 
 
 // POST
-router.post("/login", addUser);
+
 router.post("/signup", addUser);
 
 router.get("/login", getUserDetails);

@@ -22,7 +22,6 @@ db.one('SELECT $1 AS value', 'psql running successfully')
   })
 
   module.exports = {
-    pgp,
-    db,
-  };
-  
+  pgp,
+  db,
+};

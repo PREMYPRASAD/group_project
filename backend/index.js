@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const session = require('express-session')
+
+ const session = require('express-session')
+
 const bodyParser = require("body-parser");
 const userRouter = require('./routes/user');
 
@@ -12,6 +14,7 @@ app.use(cors({
   methods: ["GET", "POST"],
   credentials: true
 }));
+
 
 app.use(
   session({
