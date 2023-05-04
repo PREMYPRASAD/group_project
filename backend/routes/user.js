@@ -9,6 +9,9 @@ addUser,
 
 
 // POST
+// router.post("/login", addUser);
  router.post("/signup", addUser);
-router.post("/login", getUserDetails);
+
+router.get("/login", getUserDetails);
+
 module.exports = router;
